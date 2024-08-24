@@ -74,12 +74,12 @@
                     row.appendChild(timeCell);
 
                     days.forEach(day => {
-                        // Cell creation and merging logic
                         if (rowspanTracker[day].text === item[day]) {
+                            // Increment rowspan count
                             rowspanTracker[day].count++;
                         } else {
                             // Finalize the previous rowspan if necessary
-                            if (rowspanTracker[day].count > 1) {
+                            if (rowspanTracker[day].count > 1 && rowspanTracker[day].startRow !== null) {
                                 const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
                                 mergeCell.rowSpan = rowspanTracker[day].count;
                             }
@@ -88,7 +88,7 @@
                             rowspanTracker[day] = { text: item[day], count: 1, startRow: table.rows.length };
                         }
 
-                        // Add cell to the row
+                        // Create and append the cell for the current day
                         const cell = document.createElement('td');
                         if (item[day]) {
                             cell.textContent = item[day];
@@ -104,7 +104,7 @@
 
                 // Finalize any remaining rowspans after the loop ends
                 days.forEach(day => {
-                    if (rowspanTracker[day].count > 1) {
+                    if (rowspanTracker[day].count > 1 && rowspanTracker[day].startRow !== null) {
                         const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
                         mergeCell.rowSpan = rowspanTracker[day].count;
                     }
