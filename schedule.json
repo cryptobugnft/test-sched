@@ -1,0 +1,61 @@
+{
+    "schedule": [
+      {
+        "time": "7:00 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "8:00 AM",
+        "monday": "",
+        "tuesday": "SYSTEM ANALYSIS AND DESIGN",
+        "wednesday": "SOCIAL AND PROFESSIONAL ISSUES",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "8:30 AM",
+        "monday": "",
+        "tuesday": "SYSTEM ANALYSIS AND DESIGN",
+        "wednesday": "SOCIAL AND PROFESSIONAL ISSUES",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "10:30 AM",
+        "monday": "ELECTIVE 2",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "11:30 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "FOREIGN LANGUAGE 1",
+        "thursday": "ELECTIVE 1",
+        "friday": ""
+      },
+      {
+        "time": "3:30 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "APPLICATION DEVELOPMENT",
+        "friday": ""
+      },
+      {
+        "time": "4:30 PM",
+        "monday": "WEB SYSTEM TECHNOLOGIES 1",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "QUANTITATIVE METHODS"
+      }
+    ]
+  }
+  

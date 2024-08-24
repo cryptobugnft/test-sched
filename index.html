@@ -29,18 +29,17 @@
             background-color: #222;
             font-weight: bold;
         }
-        .system-analysis { background-color: yellow; color: black; }
-        .social-professional { background-color: cyan; color: black; }
-        .foreign-language { background-color: lightgray; color: black; }
-        .elective1 { background-color: red; }
-        .elective2 { background-color: blue; }
-        .web-system { background-color: pink; color: black; }
-        .application-development { background-color: green; }
-        .quantitative-methods { background-color: red; }
+        .highlight-yellow { background-color: yellow; color: black; }
+        .highlight-cyan { background-color: cyan; color: black; }
+        .highlight-gray { background-color: lightgray; color: black; }
+        .highlight-red { background-color: red; }
+        .highlight-blue { background-color: blue; }
+        .highlight-pink { background-color: pink; color: black; }
+        .highlight-green { background-color: green; }
     </style>
 </head>
 <body>
-    <table>
+    <table id="schedule-table">
         <tr>
             <th class="time-slot">TIME</th>
             <th>MONDAY</th>
@@ -49,151 +48,51 @@
             <th>THURSDAY</th>
             <th>FRIDAY</th>
         </tr>
-        <tr>
-            <td class="time-slot">7:00 AM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">8:00 AM</td>
-            <td></td>
-            <td class="system-analysis subject" rowspan="2">SYSTEM ANALYSIS AND DESIGN</td>
-            <td class="social-professional subject" rowspan="2">SOCIAL AND PROFESSIONAL ISSUES</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">8:30 AM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">9:00 AM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">10:00 AM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">10:30 AM</td>
-            <td class="elective2 subject" rowspan="2">ELECTIVE 2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">11:00 AM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">11:30 AM</td>
-            <td></td>
-            <td></td>
-            <td class="foreign-language subject" rowspan="2">FOREIGN LANGUAGE 1</td>
-            <td class="elective1 subject" rowspan="2">ELECTIVE 1</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">12:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">1:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">1:30 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">2:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">2:30 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">3:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="application-development subject" rowspan="2">APPLICATION DEVELOPMENT</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">3:30 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">4:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="quantitative-methods subject" rowspan="2">QUANTITATIVE METHODS</td>
-        </tr>
-        <tr>
-            <td class="time-slot">4:30 PM</td>
-            <td class="web-system subject" rowspan="2">WEB SYSTEM TECHNOLOGIES 1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">5:00 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="time-slot">5:30 PM</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
     </table>
+
+    <script>
+        // Function to load the JSON file
+        async function loadSchedule() {
+            try {
+                const response = await fetch('schedule.json');
+                const data = await response.json();
+                const schedule = data.schedule;
+
+                // Reference to the table element
+                const table = document.getElementById('schedule-table');
+
+                // Loop through the schedule data
+                schedule.forEach(item => {
+                    // Create a new row
+                    const row = document.createElement('tr');
+                    
+                    // Create cells for each column
+                    const timeCell = document.createElement('td');
+                    timeCell.classList.add('time-slot');
+                    timeCell.textContent = item.time;
+                    row.appendChild(timeCell);
+
+                    const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                    days.forEach(day => {
+                        const cell = document.createElement('td');
+                        if (item[day]) {
+                            cell.classList.add('subject');
+                            cell.textContent = item[day];
+                        }
+                        row.appendChild(cell);
+                    });
+
+                    // Append the row to the table
+                    table.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error loading the schedule:', error);
+            }
+        }
+
+        // Load the schedule when the page is ready
+        document.addEventListener('DOMContentLoaded', loadSchedule);
+    </script>
 </body>
 </html>
