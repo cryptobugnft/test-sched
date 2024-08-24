@@ -9,6 +9,14 @@
         "friday": ""
       },
       {
+        "time": "7:30 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
         "time": "8:00 AM",
         "monday": "",
         "tuesday": "SYSTEM ANALYSIS AND DESIGN",
@@ -25,8 +33,40 @@
         "friday": ""
       },
       {
+        "time": "9:00 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "9:30 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "10:00 AM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
         "time": "10:30 AM",
         "monday": "ELECTIVE 2",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "11:00 AM",
+        "monday": "",
         "tuesday": "",
         "wednesday": "",
         "thursday": "",
@@ -41,11 +81,67 @@
         "friday": ""
       },
       {
+        "time": "12:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "12:30 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "01:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "01:30 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "02:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "03:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
         "time": "3:30 PM",
         "monday": "",
         "tuesday": "",
         "wednesday": "",
         "thursday": "APPLICATION DEVELOPMENT",
+        "friday": ""
+      },
+      {
+        "time": "04:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
         "friday": ""
       },
       {
@@ -55,6 +151,46 @@
         "wednesday": "",
         "thursday": "",
         "friday": "QUANTITATIVE METHODS"
+      },
+      {
+        "time": "05:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "05:30 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "06:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "06:30 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
+      },
+      {
+        "time": "07:00 PM",
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": ""
       }
     ]
   }
