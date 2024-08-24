@@ -52,6 +52,8 @@
 
                 const table = document.getElementById('schedule-table');
 
+                const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
                 const rowspanTracker = {
                     monday: { text: "", count: 0, startRow: null },
                     tuesday: { text: "", count: 0, startRow: null },
@@ -59,8 +61,6 @@
                     thursday: { text: "", count: 0, startRow: null },
                     friday: { text: "", count: 0, startRow: null }
                 };
-
-                const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
                 schedule.forEach((item, index) => {
                     const row = document.createElement('tr');
@@ -72,34 +72,41 @@
 
                     days.forEach(day => {
                         const cell = document.createElement('td');
+
                         if (item[day]) {
-                            // If a new subject starts or it's a single instance
                             if (rowspanTracker[day].text === item[day]) {
+                                // Increment the count for rowspan if same content
                                 rowspanTracker[day].count++;
                             } else {
-                                // Finalize any previous rowspan
+                                // If different content, finalize the previous rowspan
                                 if (rowspanTracker[day].count > 1) {
                                     const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
                                     mergeCell.rowSpan = rowspanTracker[day].count;
                                 }
-                                // Start tracking a new rowspan
+
+                                // Start a new rowspan tracker
                                 rowspanTracker[day] = { text: item[day], count: 1, startRow: table.rows.length };
                             }
+
                             cell.textContent = item[day];
                             cell.classList.add('subject');
                         } else {
-                            // Continue counting for rowspan if the previous cell is to be merged
+                            // Continue rowspan count if the current day is empty
                             if (rowspanTracker[day].text) {
                                 rowspanTracker[day].count++;
+                            } else {
+                                rowspanTracker[day].startRow = null;
+                                rowspanTracker[day].count = 0;
                             }
                         }
+
                         row.appendChild(cell);
                     });
 
                     table.appendChild(row);
                 });
 
-                // Finalize any remaining rowspans at the end of the table creation
+                // Finalize any remaining rowspans after the loop ends
                 days.forEach(day => {
                     if (rowspanTracker[day].count > 1) {
                         const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
