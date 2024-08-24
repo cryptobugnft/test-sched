@@ -29,13 +29,6 @@
             background-color: #222;
             font-weight: bold;
         }
-        .highlight-yellow { background-color: yellow; color: black; }
-        .highlight-cyan { background-color: cyan; color: black; }
-        .highlight-gray { background-color: lightgray; color: black; }
-        .highlight-red { background-color: red; }
-        .highlight-blue { background-color: blue; }
-        .highlight-pink { background-color: pink; color: black; }
-        .highlight-green { background-color: green; }
     </style>
 </head>
 <body>
@@ -51,17 +44,14 @@
     </table>
 
     <script>
-        // Function to load the JSON file and create the schedule
         async function loadSchedule() {
             try {
                 const response = await fetch('schedule.json');
                 const data = await response.json();
                 const schedule = data.schedule;
 
-                // Reference to the table element
                 const table = document.getElementById('schedule-table');
 
-                // Prepare structure to store rowspan information
                 const rowspanTracker = {
                     monday: { text: "", count: 0, startRow: null },
                     tuesday: { text: "", count: 0, startRow: null },
@@ -70,71 +60,46 @@
                     friday: { text: "", count: 0, startRow: null }
                 };
 
-                // Loop through the schedule data
                 schedule.forEach((item, index) => {
-                    // Create a new row
                     const row = document.createElement('tr');
                     
-                    // Time slot cell
                     const timeCell = document.createElement('td');
                     timeCell.classList.add('time-slot');
                     timeCell.textContent = item.time;
                     row.appendChild(timeCell);
 
-                    // Days of the week
                     const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
                     days.forEach(day => {
-                        const cell = document.createElement('td');
+                        if (rowspanTracker[day].count > 0 && (rowspanTracker[day].text !== item[day] || !item[day])) {
+                            const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
+                            mergeCell.rowSpan = rowspanTracker[day].count;
+                            rowspanTracker[day] = { text: "", count: 0, startRow: null };
+                        }
 
                         if (item[day]) {
-                            // Check for merging cells with same content
                             if (rowspanTracker[day].text === item[day]) {
                                 rowspanTracker[day].count++;
                             } else {
-                                // Complete previous rowspan if exists
                                 if (rowspanTracker[day].count > 1) {
                                     const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
                                     mergeCell.rowSpan = rowspanTracker[day].count;
                                 }
-
-                                // Reset and start new rowspan tracking
-                                rowspanTracker[day].text = item[day];
-                                rowspanTracker[day].count = 1;
-                                rowspanTracker[day].startRow = index + 1;
+                                rowspanTracker[day] = { text: item[day], count: 1, startRow: index + 1 };
                             }
-                        } else {
-                            // Check for merging consecutive empty cells
-                            if (rowspanTracker[day].text === "") {
-                                rowspanTracker[day].count++;
-                            } else {
-                                // Complete previous rowspan if exists
-                                if (rowspanTracker[day].count > 1) {
-                                    const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
-                                    mergeCell.rowSpan = rowspanTracker[day].count;
-                                }
 
-                                // Reset and start new rowspan tracking
-                                rowspanTracker[day].text = "";
-                                rowspanTracker[day].count = 1;
-                                rowspanTracker[day].startRow = index + 1;
-                            }
-                        }
-
-                        // Add content to cell if not merged
-                        if (rowspanTracker[day].count === 1) {
+                            const cell = document.createElement('td');
                             cell.textContent = item[day];
-                            if (item[day]) {
-                                cell.classList.add('subject');
-                            }
+                            cell.classList.add('subject');
                             row.appendChild(cell);
+                        } else {
+                            rowspanTracker[day].count++;
+                            row.appendChild(document.createElement('td'));
                         }
                     });
 
-                    // Append the row to the table
                     table.appendChild(row);
                 });
 
-                // Finalize any pending rowspans
                 days.forEach(day => {
                     if (rowspanTracker[day].count > 1) {
                         const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
@@ -147,7 +112,6 @@
             }
         }
 
-        // Load the schedule when the page is ready
         document.addEventListener('DOMContentLoaded', loadSchedule);
     </script>
 </body>
