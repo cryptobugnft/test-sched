@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .time-slot {
+            background-color: #000;
+            color: #fff;
+        }
+        .subject {
+            background-color: #222;
+            font-weight: bold;
+        }
+        .system-analysis { background-color: yellow; color: black; }
+        .social-professional { background-color: cyan; color: black; }
+        .foreign-language { background-color: lightgray; color: black; }
+        .elective1 { background-color: red; }
+        .elective2 { background-color: blue; }
+        .web-system { background-color: pink; color: black; }
+        .application-development { background-color: green; }
+        .quantitative-methods { background-color: red; }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th class="time-slot">TIME</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+        </tr>
+        <tr>
+            <td class="time-slot">7:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">8:00 AM</td>
+            <td></td>
+            <td class="system-analysis subject" rowspan="2">SYSTEM ANALYSIS AND DESIGN</td>
+            <td class="social-professional subject" rowspan="2">SOCIAL AND PROFESSIONAL ISSUES</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">8:30 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">9:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">10:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">10:30 AM</td>
+            <td class="elective2 subject" rowspan="2">ELECTIVE 2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">11:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">11:30 AM</td>
+            <td></td>
+            <td></td>
+            <td class="foreign-language subject" rowspan="2">FOREIGN LANGUAGE 1</td>
+            <td class="elective1 subject" rowspan="2">ELECTIVE 1</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">12:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">1:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">1:30 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">2:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">2:30 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">3:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="application-development subject" rowspan="2">APPLICATION DEVELOPMENT</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">3:30 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">4:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="quantitative-methods subject" rowspan="2">QUANTITATIVE METHODS</td>
+        </tr>
+        <tr>
+            <td class="time-slot">4:30 PM</td>
+            <td class="web-system subject" rowspan="2">WEB SYSTEM TECHNOLOGIES 1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">5:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="time-slot">5:30 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
