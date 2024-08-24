@@ -62,7 +62,6 @@
 
                 schedule.forEach((item, index) => {
                     const row = document.createElement('tr');
-                    console.log(item);
                     
                     const timeCell = document.createElement('td');
                     timeCell.classList.add('time-slot');
@@ -85,7 +84,7 @@
                                     const mergeCell = table.rows[rowspanTracker[day].startRow].cells[days.indexOf(day) + 1];
                                     mergeCell.rowSpan = rowspanTracker[day].count;
                                 }
-                                rowspanTracker[day] = { text: item[day], count: 1, startRow: index + 1 };
+                                rowspanTracker[day] = { text: item[day], count: 1, startRow: table.rows.length };
                             }
 
                             const cell = document.createElement('td');
@@ -93,7 +92,9 @@
                             cell.classList.add('subject');
                             row.appendChild(cell);
                         } else {
-                            rowspanTracker[day].count++;
+                            if (rowspanTracker[day].startRow !== null) {
+                                rowspanTracker[day].count++;
+                            }
                             row.appendChild(document.createElement('td'));
                         }
                     });
